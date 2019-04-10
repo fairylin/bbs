@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>board new</title>
+</head>
+<body>
+<form action="{{ url_for('board.add') }}" method="post">
+    <input type="text" name="title">
+    <br>
+    <button type="submit">新增板块</button>
+</form>
+</body>
+</html>
