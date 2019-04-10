@@ -18,6 +18,7 @@ class Topic(Model):
         self.ct = int(time.time())
         self.ut = self.ct
         self.user_id = form.get('user_id', '')
+        self.board_id = int(form.get('board_id', -1))
 
     def replies(self):
         from .reply import Reply

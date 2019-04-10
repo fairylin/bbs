@@ -26,6 +26,19 @@
         </div>
         <div id="content">
             <div class="panel">
+                <div class="header">
+                    <a href="/topic"
+                       class="topic-tab current-tab">
+                        全部
+                    </a>
+
+                    {% for b in bs %}
+                        <a href="/topic?board_id={{ b.id }}"
+                           class="topic-tab current-tab">
+                            {{ b.title }}
+                        </a>
+                    {% endfor %}
+                </div>
                 <div class="inner post">
                     <div class="topic_list">
                         {% for t in ms %}

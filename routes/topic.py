@@ -9,6 +9,7 @@ from flask import (
 from routes import *
 
 from models.topic import Topic
+from models.board import Board
 
 
 main = Blueprint('topic', __name__)
@@ -16,8 +17,16 @@ main = Blueprint('topic', __name__)
 
 @main.route("/")
 def index():
-    ms = Topic.all()
-    return render_template("topic/index.html", ms=ms)
+    # board_id = 2
+    board_id = int(request.args.get('board_id', -1))
+    if board_id == -1:
+        ms = Topic.all()
+    else:
+        ms = Topic.find_all(board_id=board_id)
+    u = current_user()
+    bs = Board.all()
+    # ms = Topic.all()
+    return render_template("topic/index.html", ms=ms, bs=bs)
 
 
 @main.route('/<int:id>')
@@ -37,4 +46,5 @@ def add():
 
 @main.route("/new")
 def new():
-    return render_template("topic/new.html")
+    bs = Board.all()
+    return render_template("topic/new.html", bs=bs)

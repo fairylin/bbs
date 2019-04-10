@@ -23,6 +23,14 @@
         <textarea autofocus class='span9' id='title'
                   name='title' rows='1'
                   placeholder="标题字数 10 字以上"></textarea>
+        <span class="tab-selector">
+            <select name="board_id" id="board" required>
+                <option value="">请选择</option>
+                {% for b in bs %}
+                    <option value="{{ b.id }}">{{ b.title }}</option>
+                {% endfor %}
+            </select>
+        </span>
         <div class='markdown_editor in_editor'>
           <div class='markdown_in_editor'>
             <textarea class='editor' name='content' rows='20' placeholder='文章支持 Markdown 语法, 请注意标记代码'></textarea>
