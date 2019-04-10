@@ -15,9 +15,10 @@ def save(data, path):
 
 
 def load(path):
+    print(path)
     with open(path, 'r', encoding='utf-8') as f:
         s = f.read()
-        # log('load', s)
+        log('load', s)
         return json.loads(s)
 
 
