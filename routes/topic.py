@@ -32,15 +32,17 @@ def index():
 @main.route('/<int:id>')
 def detail(id):
     m = Topic.get(id)
+    b = Board.get(m.board_id)
+    u = User.get(m.user_id)
     # 传递 topic 的所有 reply 到 页面中
-    return render_template("topic/detail.html", topic=m)
+    return render_template("topic/detail.html", topic=m, board=b, user=u)
 
 
 @main.route("/add", methods=["POST"])
 def add():
     form = request.form
     u = current_user()
-    m = Topic.new(form, user_id=u.id)
+    m = Topic.new(form, user_id=u.id) # , user_id=u.id
     return redirect(url_for('.detail', id=m.id))
 
 
