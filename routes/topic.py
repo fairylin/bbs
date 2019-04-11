@@ -44,6 +44,15 @@ def add():
     return redirect(url_for('.detail', id=m.id))
 
 
+@main.route('/delete')
+def delete():
+    id = int(request.args.get('id'))
+    u = current_user()
+    # 判断 token 是否是我们给的
+    Topic.delete(id)
+    return redirect(url_for('.index'))
+
+
 @main.route("/new")
 def new():
     bs = Board.all()

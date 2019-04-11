@@ -49,6 +49,9 @@
                                     </a>
                                     {# 通过管道方式，进行数据计数（将t.replies 作为参数 给count 函数使用，进行计数后放在 {{  }}中供 jinja2 使用 #}
                                     <span>{{ t.replies() | count }} / {{ t.views }}</span>
+                                    <a class="topic_title" href="{{ url_for('topic.delete', id=t.id) }}">
+                                        删除
+                                    </a>
                                 </div>
                             </div>
                         {% endfor %}
