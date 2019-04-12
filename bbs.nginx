@@ -4,6 +4,6 @@ server {
         proxy_pass http://localhost:2001;
     }
     location /v2/ {
-    	proxy_pass http://api.douban.com/v2/
+        proxy_pass https://api.douban.com/v2/;
     }
 }
