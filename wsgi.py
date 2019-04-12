@@ -30,6 +30,10 @@ autostart=true
 ln -s /var/www/bbs/bbs.conf /etc/supervisor/conf.d/bbs.conf
 
 ln -s /var/www/bbs/bbs.nginx /etc/nginx/sites-enabled/bbs
+将我们自己设置的bbs.nginx 文件和 /etc/nginx/sites-enabled/bbs 建立软连接之后
+我们需要将 /etc/nginx/sites-enabled/文件夹下的default配置文件删除
+可以到/etc/nginx中查看nginx.conf查看，nginx中读取的配置文件来源
+通过命令 service nginx restart 重启 nginx 服务即可
 
 
 
