@@ -1,3 +1,4 @@
+# encoding:utf8
 import sys
 from os.path import abspath
 from os.path import dirname

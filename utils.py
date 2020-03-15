@@ -1,3 +1,4 @@
+# encoding:utf8
 import os.path
 import time
 import json
