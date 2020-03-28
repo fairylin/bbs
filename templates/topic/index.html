@@ -44,14 +44,21 @@
                         {% for t in ms %}
                             <div class="cell">
                                 <div class="topic_title_wrapper">
+                                    <a class="user_avatar pull-left">
+                                        <img src="{{ '/uploads/' + t.user().user_image + '?v=4&amp;s=120' }}" title="i5ting">
+                                    </a>
+
                                     <a class="topic_title" href="{{ url_for('topic.detail', id=t.id) }}">
                                         {{ t.title }}
                                     </a>
+
                                     {# 通过管道方式，进行数据计数（将t.replies 作为参数 给count 函数使用，进行计数后放在 {{  }}中供 jinja2 使用 #}
                                     <span>{{ t.replies() | count }} / {{ t.views }}</span>
-                                    <a class="topic_title" href="{{ url_for('topic.delete', id=t.id) }}">
+
+                                    <a class="topic_title" href="{{ url_for('topic.delete', id=t.id, token=token) }}">
                                         删除
                                     </a>
+
                                 </div>
                             </div>
                         {% endfor %}
