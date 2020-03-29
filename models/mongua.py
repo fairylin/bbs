@@ -1,13 +1,20 @@
 import time
 from pymongo import MongoClient
+
 mongua = MongoClient()
 
 
 def timestamp():
+    # 时间戳
     return int(time.time())
 
 
 def next_id(name):
+    """
+    根据传入的 collection 名称，查询返回其中插入记录的最新id
+    :param name:
+    :return:
+    """
     query = {
         'name': name,
     }
@@ -30,6 +37,9 @@ def next_id(name):
 
 
 class Mongua(object):
+    """
+    共有字段
+    """
     __fields__ = [
         '_id',
         # (字段名, 类型, 值)
@@ -227,9 +237,9 @@ class Mongua(object):
         query = {
             'id': self.id,
         }
-        values = {
-            'deleted': True
-        }
+        values = {"$set":
+                      {'deleted': True}
+                  }
         mongua.db[name].update_one(query, values)
         # self.deleted = True
         # self.save()
