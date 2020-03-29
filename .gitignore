@@ -4,7 +4,9 @@ config.py
 gua.log.txt
 log.gua.txt
 web18
-web20
+web20-1
+web20-2
+web20-3
 
 
 # Byte-compiled / optimized / DLL files
